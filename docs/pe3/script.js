@@ -197,7 +197,7 @@ function key_Up(event) {
 
 let anime = setInterval(time, 50)
 function time() {
-  fuel -= 0.001
+  if (fuel <= 0.2) fuel -= 0.001
   if (key_W || key_S) fuel -= 0.003
   if (key_A || key_D) fuel -= 0.003
   
