@@ -243,5 +243,6 @@ function time() {
 // ================================================== [50]
 //     Cancel Listener
 
-canvas.addEventListener('click', function(e) { e.preventDefault() }, false)
-canvas.addEventListener('dblclick', function(e) { e.preventDefault() }, false)
+canvas.addEventListener('click',      function(e) { e.preventDefault() }, false)
+canvas.addEventListener('dblclick',   function(e) { e.preventDefault() }, false)
+canvas.addEventListener('touchstart', function(e) { e.preventDefault() }, false)
