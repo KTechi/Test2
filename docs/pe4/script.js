@@ -270,41 +270,63 @@ window.onresize = resize
 function load() {
   if (isMobile()) {
     scale = 0.5
+    
     const body = document.querySelector('body')
-    const w = document.createElement('div')
-    const a = document.createElement('div')
-    const d = document.createElement('div')
-    const s = document.createElement('div')
-    body.appendChild(w)
-    body.appendChild(a)
-    body.appendChild(d)
-    body.appendChild(s)
-    w.addEventListener('touchstart', function(e) {
-      key_W = true
+    const grid_container = document.createElement('section')
+    body.appendChild(grid_container)
+    
+    const k0 = document.createElement('div')
+    const k1 = document.createElement('div')
+    const k2 = document.createElement('div')
+    const k3 = document.createElement('div')
+    const k4 = document.createElement('div')
+    const k5 = document.createElement('div')
+    const k6 = document.createElement('div')
+    const keys = [k0, k1, k2, k3, k4, k5, k6]
+    for (let i = 0; i < keys.length; i++)
+      grid_container.appendChild(keys[i])
+    
+    k0.addEventListener('touchstart', function(e) {
+      key_0 = true
       e.preventDefault()
     }, false)
-    w.addEventListener('touchend'  , function() { key_W = false }, false)
-    a.addEventListener('touchstart', function(e) {
-      key_A = true
+    k0.addEventListener('touchend'  , function() { key_0 = false }, false)
+    k1.addEventListener('touchstart', function(e) {
+      key_1 = true
       e.preventDefault()
     }, false)
-    a.addEventListener('touchend'  , function() { key_A = false }, false)
-    d.addEventListener('touchstart', function(e) {
-      key_D = true
+    k1.addEventListener('touchend'  , function() { key_1 = false }, false)
+    k2.addEventListener('touchstart', function(e) {
+      key_2 = true
       e.preventDefault()
     }, false)
-    d.addEventListener('touchend'  , function() { key_D = false }, false)
-    s.addEventListener('touchstart', function(e) {
-      key_S = true
+    k2.addEventListener('touchend'  , function() { key_2 = false }, false)
+    k3.addEventListener('touchstart', function(e) {
+      key_3 = true
       e.preventDefault()
     }, false)
-    s.addEventListener('touchend'  , function() { key_S = false }, false)
+    k3.addEventListener('touchend'  , function() { key_3 = false }, false)
+    k4.addEventListener('touchstart', function(e) {
+      key_4 = true
+      e.preventDefault()
+    }, false)
+    k4.addEventListener('touchend'  , function() { key_4 = false }, false)
+    k5.addEventListener('touchstart', function(e) {
+      key_5 = true
+      e.preventDefault()
+    }, false)
+    k5.addEventListener('touchend'  , function() { key_5 = false }, false)
+    k6.addEventListener('touchstart', function(e) {
+      key_6 = true
+      e.preventDefault()
+    }, false)
+    k6.addEventListener('touchend'  , function() { key_6 = false }, false)
   }
   resize()
 }
 function resize() {
-  VW = scale * window.innerWidth
-  VH = scale * window.innerHeight
+  VW = scale * document.body.clientWidth
+  VH = scale * document.body.clientHeight
   canvas.width  = VW
   canvas.height = VH
   paint()
@@ -313,13 +335,13 @@ function resize() {
 // ================================================== [50]
 //     Key Listener
 
+let key_0 = false
 let key_1 = false
 let key_2 = false
 let key_3 = false
 let key_4 = false
 let key_5 = false
 let key_6 = false
-let key_0 = false
 let count = 0
 let goal = new Vertex(300, 300)
 let goal_ang = 0
@@ -342,13 +364,13 @@ function key_Press(event) {
 }
 function key_Down(event) {
   switch (event.key) {
+    case ' ': key_0 = true; break
     case 'q': key_1 = true; break
     case 'w': key_2 = true; break
     case 'e': key_3 = true; break
     case 'r': key_4 = true; break
     case 't': key_5 = true; break
     case 'y': key_6 = true; break
-    case ' ': key_0 = true; break
     
     case 'z': key_1 = true; break
     case 'a': key_2 = true; break
@@ -360,13 +382,13 @@ function key_Down(event) {
 }
 function key_Up(event) {
   switch (event.key) {
+    case ' ': key_0 = false; break
     case 'q': key_1 = false; break
     case 'w': key_2 = false; break
     case 'e': key_3 = false; break
     case 'r': key_4 = false; break
     case 't': key_5 = false; break
     case 'y': key_6 = false; break
-    case ' ': key_0 = false; break
     
     case 'z': key_1 = false; break
     case 'a': key_2 = false; break
@@ -377,8 +399,12 @@ function key_Up(event) {
   }
 }
 
+// ================================================== [50]
+//     Anime
+
 let anime = setInterval(time, 50)
 function time() {
+  
   if (main_fuel <= 0) {
     main_fuel = 0
     key_0 = false
@@ -392,6 +418,7 @@ function time() {
     key_5 = false
     key_6 = false
   }
+  
   f.x = 0
   f.y = 0
   t   = 0
