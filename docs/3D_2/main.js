@@ -145,6 +145,40 @@ function mouse_Wheel(event) {
 }
 
 // ================================================== [50]
+//     Touch Listener
+
+let touch_x = 0
+let touch_y = 0
+canvas.addEventListener('touchstart' , touch_Start , false)
+canvas.addEventListener('touchend'   , touch_End   , false)
+canvas.addEventListener('touchcancel', touch_Cancel, false)
+canvas.addEventListener('touchmove'  , touch_Move  , false)
+function touch_Start (event) {
+  const touches = event.changedTouches
+  touch_x = touches[0].pageX
+  touch_y = touches[0].pageY
+}
+function touch_End   (event) {}
+function touch_Cancel(event) {}
+function touch_Move  (event) {
+  event.preventDefault()
+  const touches = event.changedTouches
+  const new_x = touches[0].pageX
+  const new_y = touches[0].pageY
+  const dx = new_x - touch_x
+  const dy = new_y - touch_y
+  touch_x = new_x
+  touch_y = new_y
+
+  yaw   = (yaw   + 0.01 * dx) % (2*Math.PI)
+  pitch = (pitch + 0.01 * dy)
+  if (pitch < -Math.PI / 2) pitch = -Math.PI / 2
+  if ( Math.PI / 2 < pitch) pitch =  Math.PI / 2
+
+  paint()
+}
+
+// ================================================== [50]
 //     Animation
 
 // let animation = setInterval(repeat, 100)
