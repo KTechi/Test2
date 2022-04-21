@@ -30,7 +30,11 @@ function paint() {
   // paintVertexR(axisZ.v, q)
   
   // Edge
-  context.lineWidth = 1.5
+  function isMobile() {
+    const regexp = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i
+    return window.navigator.userAgent.search(regexp) !== -1
+  }
+  context.lineWidth = isMobile() ? 2.5 : 1.5
   for (const e of edges) {
     const y = (qRotation(e.u, q).y + qRotation(e.v, q).y) / 2
     if (0 < y) continue
@@ -69,6 +73,7 @@ window.onresize = resize
 function load() {
   document.body.append(canvas)
   resize()
+  console.log('Ready')
 }
 function resize() {
   VW = parseInt(scale * canvas.clientWidth)
@@ -151,7 +156,6 @@ function mouse_Wheel(event) {
 //   clearInterval(animation)
 //   console.log('Animation STOP')
 // }
-console.log('Ready')
 
 // ================================================== [50]
 //     END
