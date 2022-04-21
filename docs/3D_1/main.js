@@ -37,8 +37,11 @@ function paint() {
   const W = 600
   const H = 300
   const div = 20
-
-  context.lineWidth = 1
+  function isMobile() {
+    const regexp = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i
+    return window.navigator.userAgent.search(regexp) !== -1
+  }
+  context.lineWidth = isMobile() ? 2 : 1
   context.strokeStyle = 'rgb(255, 0, 255, 0.5)'
   for (let x = 0; x <= div; x++) {
     const vtx = [
@@ -69,7 +72,6 @@ function paint() {
                           VW/2 + tmp[6].x, VH/2 - tmp[6].z)
     context.stroke()
   }
-  context.lineWidth = 1
   context.strokeStyle = 'rgb(0, 255, 255, 0.5)'
   for (let x = 0; x <= div; x++) {
     const vtx = [
