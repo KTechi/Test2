@@ -31,7 +31,7 @@ function paintVertex(v) {
 
 // var connection = new WebSocket('ws://echo.websocket.org')
 // let socket = new WebSocket('ws://localhost:8081')
-let socket = new WebSocket('ws://192.168.11.4:8081')
+let socket = new WebSocket('wss://192.168.11.4:8081')
 
 // socket.send('')
 socket.onopen = function(e) {
