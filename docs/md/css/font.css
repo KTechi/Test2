@@ -1,0 +1,120 @@
+@charset "UTF-8";
+
+/*
+100 Thin (Hairline)
+200 Extra Light (Ultra Light)
+300 Light
+400 Normal (Regular)
+500 Medium
+600 Semi Bold (Demi Bold)
+700 Bold
+800 Extra Bold (Ultra Bold)
+900 Black (Heavy)
+950 Extra Black (Ultra Black)
+*/
+
+/* ================ KleeOne ================ */
+@font-face {
+    font-family: KleeOne;
+    src: url(../font/KleeOne/KleeOne-Regular.ttf) format(truetype);
+    font-weight: 400;
+}
+@font-face {
+    font-family: KleeOne;
+    src: url(../font/KleeOne/KleeOne-SemiBold.ttf) format(truetype);
+    font-weight: 600;
+}
+
+/* ================ STIXTwo[Math|Text] ================ */
+@font-face {
+    font-family: STIXTwoMath;
+    src: url(../font/STIXTwo/STIXTwoMath-Regular.otf) format(opentype);
+    font-weight: 400;
+}
+@font-face {
+    font-family: STIXTwoText;
+    src: url(../font/STIXTwo/STIXTwoText-Regular.otf) format(opentype);
+    font-weight: 400;
+}
+@font-face {
+    font-family: STIXTwoText;
+    src: url(../font/STIXTwo/STIXTwoText-Medium.otf) format(opentype);
+    font-weight: 500;
+}
+@font-face {
+    font-family: STIXTwoText;
+    src: url(../font/STIXTwo/STIXTwoText-SemiBold.otf) format(opentype);
+    font-weight: 600;
+}
+@font-face {
+    font-family: STIXTwoText;
+    src: url(../font/STIXTwo/STIXTwoText-Bold.otf) format(opentype);
+    font-weight: 700;
+}
+@font-face {
+    font-family: STIXTwoText;
+    src: url(../font/STIXTwo/STIXTwoText-Italic.otf) format(opentype);
+    font-weight: 400;
+    font-style: italic;
+}
+@font-face {
+    font-family: STIXTwoText;
+    src: url(../font/STIXTwo/STIXTwoText-MediumItalic.otf) format(opentype);
+    font-weight: 500;
+    font-style: italic;
+}
+@font-face {
+    font-family: STIXTwoText;
+    src: url(../font/STIXTwo/STIXTwoText-SemiBoldItalic.otf) format(opentype);
+    font-weight: 600;
+    font-style: italic;
+}
+@font-face {
+    font-family: STIXTwoText;
+    src: url(../font/STIXTwo/STIXTwoText-BoldItalic.otf) format(opentype);
+    font-weight: 700;
+    font-style: italic;
+}
+
+/* ================ ZenKakuGothicNew ================ */
+@font-face {
+    font-family: ZenKakuGothicNew;
+    src: url(../font/ZenKakuGothicNew/ZenKakuGothicNew-Light.ttf) format(truetype);
+    font-weight: 300;
+}
+@font-face {
+    font-family: ZenKakuGothicNew;
+    src: url(../font/ZenKakuGothicNew/ZenKakuGothicNew-Regular.ttf) format(truetype);
+    font-weight: 400;
+}
+@font-face {
+    font-family: ZenKakuGothicNew;
+    src: url(../font/ZenKakuGothicNew/ZenKakuGothicNew-Medium.ttf) format(truetype);
+    font-weight: 500;
+}
+@font-face {
+    font-family: ZenKakuGothicNew;
+    src: url(../font/ZenKakuGothicNew/ZenKakuGothicNew-Bold.ttf) format(truetype);
+    font-weight: 700;
+}
+@font-face {
+    font-family: ZenKakuGothicNew;
+    src: url(../font/ZenKakuGothicNew/ZenKakuGothicNew-Black.ttf) format(truetype);
+    font-weight: 900;
+}
+
+* {
+    font-family: inherit;
+}
+body {
+    font-family: STIXTwoText, KleeOne, serif;
+    font-size: 30px;
+}
+math {
+    font-family: STIXTwoMath, KleeOne, serif;
+    font-size: 20px;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: ZenKakuGothicNew, sans-serif;
+    font-weight: 700;
+}
